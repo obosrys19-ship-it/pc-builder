@@ -1,0 +1,18 @@
+scripts/update_prices.py
+import os, json, urllib.request, xml.etree.ElementTree as ET, re
+from datetime import datetime, timezone
+
+FEEDS = {
+    # Сюда позже вставите ссылки на фиды магазинов, когда они у вас появятся
+}
+
+def update_prices():
+    os.makedirs("data", exist_ok=True)
+    prices_path = "data/prices.json"
+    if not os.path.exists(prices_path):
+        with open(prices_path, "w", encoding="utf-8") as f:
+            json.dump({}, f, ensure_ascii=False, indent=2)
+    print("Prices check completed.")
+
+if __name__ == "__main__":
+    update_prices()
